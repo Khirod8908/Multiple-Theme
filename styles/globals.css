@@ -24,13 +24,13 @@ body[data-theme='dark-theme'] {
   --desc-color: #fff;
 }
 
-body[data-theme='sea-theme'] {
+body[data-theme='green-theme'] {
   --bg-color: #ffe699;
   --headings-color: #96ceb4;
   --desc-color: #ff9292;
 }
 
-body[data-theme='sharp-theme'] {
+body[data-theme='red-theme'] {
   --bg-color: #ff7777;
   --headings-color: #a2416b;
   --desc-color: #852747;

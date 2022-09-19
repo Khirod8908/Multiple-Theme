@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.css';
 import AnimatedCursor from 'react-animated-cursor';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [cursorColor, setCursorColor] = useState({
@@ -24,19 +24,30 @@ export default function Home() {
     document.body.setAttribute('data-theme', 'red-theme');
     setCursorColor({ r: '255', g: '213', b: '213' });
   };
-
-  return (
-    <div className={styles.container}>
+  const Cursor = () => {
+    return (
       <AnimatedCursor
         innerSize={16}
         outerSize={16}
-        color={`${cursorColor.r}, ${cursorColor.g}, ${cursorColor.b}`}
-        outerAlpha={0.5}
+        // color={`${cursorColor.r}, ${cursorColor.g}, ${cursorColor.b}`}
+        outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
         clickables={['h1', 'button']}
+        innerStyle={{
+          backgroundColor: 'var(--desc-color)',
+        }}
       />
+    );
+  };
+  useEffect(() => {
+    Cursor();
+  }, [Cursor]);
+
+  return (
+    <div className={styles.container}>
       <h1>Click button to change Theme</h1>
+      <Cursor />
       <div>
         <button onClick={lightButton}>Light</button>
         <button onClick={darkButton}> Dark </button>
